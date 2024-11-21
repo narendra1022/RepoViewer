@@ -67,6 +67,7 @@ fun GitHubSearchScreen(viewModel: GitViewModel = hiltViewModel()) {
                         if (repositories.isEmpty()) NoRepositoriesState()
                         else RepositoryList(repositories)
                     }
+
                     is UiState.Error -> ErrorState(message = "Username cannot be empty.")
                     is UiState.InvalidUsername -> InvalidUsernameState()
                     is UiState.NoRepositories -> NoRepositoriesState()

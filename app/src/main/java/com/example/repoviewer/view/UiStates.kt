@@ -2,11 +2,8 @@ package com.example.repoviewer.view
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Button
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -88,6 +85,10 @@ fun InvalidUsernameState() {
             .padding(16.dp),
         contentAlignment = Alignment.Center
     ) {
-        Text("Username is not correct.", style = MaterialTheme.typography.body1, color = MaterialTheme.colors.error)
+        Text(
+            "Username is not correct.",
+            style = MaterialTheme.typography.body1,
+            color = MaterialTheme.colors.error
+        )
     }
 }

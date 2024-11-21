@@ -42,8 +42,8 @@ fun SearchBar(
         )
         Button(
             onClick = {
-                keyboardController?.hide() // Hides the keyboard
-                onSearchClicked() // Perform search action
+                keyboardController?.hide()
+                onSearchClicked()
             },
             modifier = Modifier.height(56.dp),
             shape = RoundedCornerShape(8.dp)

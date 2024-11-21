@@ -20,12 +20,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.util.trace
 import com.example.repoviewer.model.model.RepositoryDto
 
 @Composable
@@ -91,8 +88,3 @@ fun RepositoryItem(repo: RepositoryDto, modifier: Modifier = Modifier) {
     }
 }
 
-@Preview
-@Composable
-private fun pr() {
-    RepositoryItem(RepositoryDto(1, "Narendra", "Nothing", 2, "java"))
-}
