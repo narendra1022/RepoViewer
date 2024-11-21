@@ -21,15 +21,26 @@ class GitViewModel @Inject constructor(
         viewModelScope.launch {
             _uiState.value = UiState.Loading
 
+            if (username.isBlank()) {
+                _uiState.value = UiState.Error("Username cannot be empty.")
+                return@launch
+            }
+
             val result = repository.getRepositories(username)
 
             _uiState.value = if (result.isSuccess) {
-                UiState.Success(result.getOrThrow())
+                val repositories = result.getOrThrow()
+                if (repositories.isEmpty()) {
+                    UiState.NoRepositories
+                } else {
+                    UiState.Success(repositories)
+                }
             } else {
-                UiState.Error(result.exceptionOrNull()?.localizedMessage ?: "Unknown Error")
+                UiState.InvalidUsername
             }
         }
     }
 }
+
 
 

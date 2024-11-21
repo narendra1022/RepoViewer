@@ -68,3 +68,26 @@ fun ErrorState(message: String) {
     }
 }
 
+@Composable
+fun NoRepositoriesState() {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        contentAlignment = Alignment.Center
+    ) {
+        Text("User doesn't have any repositories.", style = MaterialTheme.typography.body1)
+    }
+}
+
+@Composable
+fun InvalidUsernameState() {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        contentAlignment = Alignment.Center
+    ) {
+        Text("Username is not correct.", style = MaterialTheme.typography.body1, color = MaterialTheme.colors.error)
+    }
+}

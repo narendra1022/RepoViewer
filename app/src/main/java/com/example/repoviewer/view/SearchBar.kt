@@ -11,6 +11,7 @@ import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -20,6 +21,8 @@ fun SearchBar(
     onSearchClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val keyboardController = LocalSoftwareKeyboardController.current // Access keyboard controller
+
     Row(
         modifier = modifier
             .fillMaxWidth()
@@ -38,7 +41,10 @@ fun SearchBar(
             shape = RoundedCornerShape(8.dp)
         )
         Button(
-            onClick = onSearchClicked,
+            onClick = {
+                keyboardController?.hide() // Hides the keyboard
+                onSearchClicked() // Perform search action
+            },
             modifier = Modifier.height(56.dp),
             shape = RoundedCornerShape(8.dp)
         ) {
@@ -46,3 +52,4 @@ fun SearchBar(
         }
     }
 }
+

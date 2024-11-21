@@ -64,11 +64,12 @@ fun GitHubSearchScreen(viewModel: GitViewModel = hiltViewModel()) {
                     is UiState.Loading -> LoadingState()
                     is UiState.Success -> {
                         val repositories = (uiState as UiState.Success).repositories
-                        if (repositories.isEmpty()) EmptyState()
+                        if (repositories.isEmpty()) NoRepositoriesState()
                         else RepositoryList(repositories)
                     }
-
-                    is UiState.Error -> ErrorState(message = "Enter Correct User Name")
+                    is UiState.Error -> ErrorState(message = "Username cannot be empty.")
+                    is UiState.InvalidUsername -> InvalidUsernameState()
+                    is UiState.NoRepositories -> NoRepositoriesState()
                 }
             }
         }
